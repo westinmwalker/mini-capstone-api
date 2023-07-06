@@ -1,1 +1,2 @@
-
+product = Product.new(name: "Bicycle Platinum Playing Cards", price: 11.99, image_url: "https://playingcarddecks.com/cdn/shop/products/1322d168e52aa6e68245118705e4710a_original_e4caca7b-466f-47f4-b687-1ef895d8bb11.jpg?v=1576804703", description: "From a lineage of design eloquence comes a new deck of playing cards rendered in platinum. The elements of the design are forged from liquid metal tones, and enhanced by metallic inks. Crafted with rare aesthetics, the Bicycle Platinum is a work of sophistication engineered to last and impress.")
+product.save
