@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
   end
 
   def all_products
-    @product = Product.all
-    render json: @product
+    @products = Product.all
+    render json: @products
   end
 end
