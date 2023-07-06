@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   def first
-    render json: { message: "hello" }
+    product = Product.first
+    render json: product
   end
 end
