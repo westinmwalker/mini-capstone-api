@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get "/one_product", controller: "products", action: "first"
-  get "/two_product", controller: "products", action: "second"
+  get "/first_product", controller: "products", action: "first_product"
+  get "/second_product", controller: "products", action: "second_product"
+  get "/third_product", controller: "products", action: "third_product"
   get "/all_products", controller: "products", action: "all_products"
 end

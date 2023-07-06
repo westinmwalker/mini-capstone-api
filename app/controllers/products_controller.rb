@@ -1,16 +1,21 @@
 class ProductsController < ApplicationController
-  def first
+  def first_product
     @product = Product.first
-    render json: @product
+    render template: "products/show"
   end
 
-  def second
+  def second_product
     @product = Product.second
-    render json: @product
+    render template: "products/show"
+  end
+
+  def third_product
+    @product = Product.third
+    render template: "products/show"
   end
 
   def all_products
     @products = Product.all
-    render json: @products
+    render template: "products/index"
   end
 end

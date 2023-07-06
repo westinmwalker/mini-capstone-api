@@ -3,3 +3,6 @@ product.save
 
 product = Product.new(name: "NooTrees Bamboo 3-ply Bathroom Tissue", price: 18 image_url: "https://m.media-amazon.com/images/I/81btHbuhvFL._AC_SL1500_.jpg", description: "Environmentally friendly right from the core to the outer packaging, NooTrees 3-ply Bathroom Rolls are made with 100 percent bamboo pulp. Its bamboo fibres are velvety soft and ultra absorbent (at least 20 percent more than wood pulp).")
 product.save
+
+product = Product.new(name: "QMay DND Dice Set", price: 23, image_url: "https://m.media-amazon.com/images/I/81AgXWno1YL.__AC_SX300_SY300_QL70_FMwebp_.jpg", description: "Super deal: 20  D&D dice sets, indluce 5 double-color sets (140 pieces in total), and 1 big black drawstring bag!")
+product.save
