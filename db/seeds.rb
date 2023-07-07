@@ -6,3 +6,6 @@ product.save
 
 product = Product.new(name: "QMay DND Dice Set", price: 23, image_url: "https://m.media-amazon.com/images/I/81AgXWno1YL.__AC_SX300_SY300_QL70_FMwebp_.jpg", description: "Super deal: 20  D&D dice sets, indluce 5 double-color sets (140 pieces in total), and 1 big black drawstring bag!")
 product.save
+
+product = Product.new(name: "Product 4", price: 4, image_url: "", description: "The fourth product.")
+product.save
