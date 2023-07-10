@@ -17,4 +17,13 @@ class ProductsController < ApplicationController
     )
     render :show
   end
+
+  def update
+    @product = Product.create(
+      name: params["name"] || @product.title,
+      price: params["price"] || @product.price,
+      image_url: params["image_url"] || @product.image_url, description: params["description"] || @product.description,
+    )
+    render :show
+  end
 end
