@@ -7,3 +7,4 @@ json.extract! product, :id, :name, :price, :image_url, :description, :tax, :tota
 #json.tax product.tax
 #json.total product.total
 #json.is_discounted? product.is_discounted?
+#json.stock product.stock
