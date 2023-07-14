@@ -1,16 +1,16 @@
 class SuppliersController < ApplicationController
   def index
-    @suppliers = Product.all
+    @suppliers = Supplier.all
     render template: "suppliers/index"
   end
 
   def show
-    @supplier = Product.find_by(id: params["id"])
+    @supplier = Supplier.find_by(id: params["id"])
     render :show
   end
 
   def create
-    @supplier = Product.create(
+    @supplier = Supplier.create(
       name: params["name"] || @supplier.name,
       email: params["email"] || supplier.email,
       phone_number: params["phone_number"] || supplier.phone_number,
@@ -29,7 +29,7 @@ class SuppliersController < ApplicationController
   end
 
   def update
-    @supplier = Product.find_by(id: params["id"])
+    @supplier = Supplier.find_by(id: params["id"])
     @supplier.update(
       name: params["name"] || @supplier.name,
       email: params["email"] || supplier.email,
@@ -43,7 +43,7 @@ class SuppliersController < ApplicationController
   end
 
   def destroy
-    @supplier = Product.find_by(id: params["id"])
+    @supplier = Supplier.find_by(id: params["id"])
     @supplier.destroy
 
     render json: { message: "Entry has been deleted." }
