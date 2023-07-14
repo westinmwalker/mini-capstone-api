@@ -1,11 +1,11 @@
 supplier = Supplier.new(name: "Wizards of the Coast", email: "info@wizards.com", phone_number: "(425) 226-6500")
-supplier.save
+#supplier.save
 
 supplier = Supplier.new(name: "Chaosium", email: "customerservice@chaosium.com", phone_number: "(361)-450-0787")
-supplier.save
+#supplier.save
 
 supplier = Supplier.new(name: "Pinnacle Entertainment Group", email: "info@penginc.com", phone_number: "(456)-101-1123")
-supplier.save
+#supplier.save
 
 product = Product.new(name: "Bicycle Platinum Playing Cards", price: 12, description: "From a lineage of design eloquence comes a new deck of playing cards rendered in platinum. The elements of the design are forged from liquid metal tones, and enhanced by metallic inks. Crafted with rare aesthetics, the Bicycle Platinum is a work of sophistication engineered to last and impress.")
 product.save
