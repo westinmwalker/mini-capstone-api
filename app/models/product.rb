@@ -7,15 +7,17 @@ class Product < ApplicationRecord
   #validates :image_url, presence: true
   #validates :description, presence: true
 
+  belongs_to :supplier
+
   has_many :images
 
-  def supplier
-    Supplier.find_by(id: supplier_id)
-  end
+  #def supplier
+  #  Supplier.find_by(id: supplier_id)
+  #end
 
-  def images
-    Image.where(product_id: id)
-  end
+  #def images
+  #  Image.where(product_id: id)
+  #end
 
   def is_discounted?
     price <= 10
