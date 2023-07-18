@@ -30,3 +30,9 @@ image.save
 
 image = Image.new(url: "https://m.media-amazon.com/images/I/71BURLYgGhL._SY522_.jpg", product_id: 4)
 image.save
+
+user = User.new(name: "John", email: "johndoe@gmail.com", password: "password")
+user.save
+
+user = User.new(name: "Jane", email: "janedoe@gmail.com", password: "password1")
+user.save
