@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_admin, except: [:index, :show]
+
   def index
-    pp current_user
     @products = Product.all
     render template: "products/index"
   end
@@ -11,33 +12,41 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.create(
-      name: params["name"],
-      price: params["price"],
-      description: params["description"],
-      quantity: params["quantity"],
-      supplier_id: params["supplier_id"],
-    )
-    if @product.save
-      render :show
+    if current_user && current_user.admin
+      @product = Product.create(
+        name: params["name"],
+        price: params["price"],
+        description: params["description"],
+        quantity: params["quantity"],
+        supplier_id: params["supplier_id"],
+      )
+      if @product.save
+        render :show
+      else
+        render json: { errors: @product.errors.full_messages }, status: 422
+      end
     else
-      render json: { errors: @product.errors.full_messages }, status: 422
+      render json: { errors: @order.errors.full_messages }, status: :unauthorized
     end
   end
 
   def update
-    @product = Product.find_by(id: params["id"])
-    @product.update(
-      name: params["name"] || @product.name,
-      price: params["price"] || @product.price,
-      description: params["description"] || @product.description,
-      quantity: params["quantity"] || @product.quantity,
-      supplier_id: params["supplier_id"] || @product.supplier_id,
-    )
-    if @product.save
-      render :show
+    if current_user && current_user.admin
+      @product = Product.find_by(id: params["id"])
+      @product.update(
+        name: params["name"] || @product.name,
+        price: params["price"] || @product.price,
+        description: params["description"] || @product.description,
+        quantity: params["quantity"] || @product.quantity,
+        supplier_id: params["supplier_id"] || @product.supplier_id,
+      )
+      if @product.save
+        render :show
+      else
+        render json: { errors: @product.errors.full_messages }, status: 422
+      end
     else
-      render json: { errors: @product.errors.full_messages }, status: 422
+      render json: { errors: @order.errors.full_messages }, status: :unauthorized
     end
   end
 
