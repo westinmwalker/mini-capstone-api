@@ -26,11 +26,7 @@ class OrdersController < ApplicationController
   end
 
   def index
-    if current_user
-      @orders = current_user.orders
-      render template: "orders/index"
-    else
-      render json: { errors: @order.errors.full_messages }, status: :unauthorized
-    end
+    @orders = current_user.orders
+    render template: "orders/index"
   end
 end
