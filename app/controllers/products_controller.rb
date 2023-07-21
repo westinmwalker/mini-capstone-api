@@ -7,10 +7,9 @@ class ProductsController < ApplicationController
     if params [:category]
       category = Category.find_by(name: params[:category])
       @products = category.product_id
-      render template: "products/
+      render template: "products/"
     end
 
-    
     render template: "products/index"
   end
 
