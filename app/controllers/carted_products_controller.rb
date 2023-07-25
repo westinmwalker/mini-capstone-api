@@ -1,24 +1,22 @@
 class CartedProductsController < ApplicationController
-  before_action :authenticate_user
-
   def create
-    product = Product.find_by(id: params[:product_id])
-    @carted_product = CartedProduct.new(
+    @carted_product = CartedProduct.create(
       user_id: current_user.id,
-      order_id: nil,
-      status: "carted",
-      product_id: product.id,
+      product_id: params[:product_id],
       quantity: params[:quantity],
+      status: "carted",
     )
-    if @carted_product.save
-      render json: { message: "Product added to cart" }, status: :created
-    else
-      render json: { errors: @carted_product.errors.full_messages }, status: 422
-    end
+    render :show
   end
 
   def index
-    @carted_products = CartedProduct.all
-    render template: "carted_products/index"
+    @carted_products = current_user.carted_products.where(status: "carted")
+    render :index
+  end
+
+  def destroy
+    carted_product = current_user.carted_products.find_by(id: params[:id], status: "carted")
+    carted_product.update(status: "removed")
+    render json: { message: "product successfully removed from cart" }
   end
 end
