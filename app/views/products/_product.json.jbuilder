@@ -1,11 +1,13 @@
-json.extract! product, :id, :name, :price, :quantity, :description, :tax, :total, :is_discounted?, :supplier, :images, :categories
-#json.id product.id
-#json.name product.name
-#json.price product.price
-#json.image_url product.image_url
-#json.description product.description
-#json.tax product.tax
-#json.total product.total
-#json.is_discounted? product.is_discounted?
-#json.quantity product.quantity
-#json.supplier product.supplier
+json.id product.id
+json.name product.name
+json.price product.price
+json.categories product.categories
+json.supplier product.supplier
+json.is_discounted? product.is_discounted?
+json.tax product.tax
+json.total product.total
+json.images product.images
+json.description product.description
+json.quantity product.quantity
+json.created_at product.created_at
+json.updated_at product.updated_at

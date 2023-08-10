@@ -1,38 +1,87 @@
-supplier = Supplier.new(name: "Wizards of the Coast", email: "info@wizards.com", phone_number: "(425) 226-6500")
-supplier.save
-
-supplier = Supplier.new(name: "Chaosium", email: "customerservice@chaosium.com", phone_number: "(361)-450-0787")
-supplier.save
-
-supplier = Supplier.new(name: "Pinnacle Entertainment Group", email: "info@penginc.com", phone_number: "(456)-101-1123")
-supplier.save
-
-product = Product.new(name: "Bicycle Platinum Playing Cards", price: 12, description: "From a lineage of design eloquence comes a new deck of playing cards rendered in platinum. The elements of the design are forged from liquid metal tones, and enhanced by metallic inks. Crafted with rare aesthetics, the Bicycle Platinum is a work of sophistication engineered to last and impress.")
-product.save
-
-product = Product.new(name: ""Wildspire Fantasy Miniatures"", price: 45, description: "A collection of 68 paintable miniatures for D&D that live up to the creativity of your games. Versatile figurines for D&D, used as monsters, player characters or NPCs. Great gifts for any D&D enthusiast!")
-product.save
-
-product = Product.new(name: "QMay DND Dice Set", price: 23, description: "Super deal: 20  D&D dice sets, indluce 5 double-color sets (140 pieces in total), and 1 big black drawstring bag!")
-product.save
-
-product = Product.new(name: "Dungeons & Dragons Core Rulebooks Gift Set", price: 93, description: "Need a gift for the holidays? A birthday present, a treat for yourself? This is it. Inside the D&D Core Rulebook Gift Set are special foil cover editions of the three Dungeons & Dragons core rulebooks—the Players Handbook, Dungeon Master's Guide, and Monster Manual—plus a Dungeon Master's screen, all collected in a stylish slipcase. It's the perfect gift for any D&D fan!")
-product.save
-
-image = Image.new(url: "https://playingcarddecks.com/cdn/shop/products/1322d168e52aa6e68245118705e4710a_original_e4caca7b-466f-47f4-b687-1ef895d8bb11.jpg?v=1576804703", product_id: 1)
-image.save
-
-image = Image.new(url: "https://m.media-amazon.com/images/I/91gNZwc-1-L.__AC_SX300_SY300_QL70_FMwebp_.jpg", product_id: 2)
-image.save
-
-image = Image.new(url: "https://m.media-amazon.com/images/I/81AgXWno1YL.__AC_SX300_SY300_QL70_FMwebp_.jpg", product_id: 3)
-image.save
-
-image = Image.new(url: "https://m.media-amazon.com/images/I/71BURLYgGhL._SY522_.jpg", product_id: 4)
-image.save
-
-user = User.new(name: "John", email: "johndoe@gmail.com", password: "password")
-user.save
-
-user = User.new(name: "Jane", email: "janedoe@gmail.com", password: "password1")
-user.save
+User.create!([
+  { name: "Luna", email: "luna@example.com", password_digest: "$2a$12$ggKAL0Ja.MbnZWP4OgQc4eBxBE6tE2CXxLw1Y7MgQoz0AYa/Bh.tW", admin: false },
+  { name: "amanda", email: "amanda@example.com", password_digest: "$2a$12$/urmKU1wb1TydNESDbXjbOkezpI734OXJ7FeYL7uHvephj89EbVUW", admin: true },
+])
+Supplier.create!([
+  { name: "Amazon", email: "amazon@example.com", phone_number: "18008008080" },
+  { name: "Think Geek", email: "tg@example.com", phone_number: "18000008008" },
+])
+Category.create!([
+  { name: "Cheap" },
+  { name: "Wearable" },
+  { name: "Damage" },
+  { name: "Home Good" },
+])
+Product.create!([
+  { name: "Sonic Screwdriver", price: "9.0", description: "The Doctor's sciencey magic wand to get out of tight spots. Note: does not work on wood", quantity: 99, supplier_id: 2 },
+  { name: "DnD Dice set", price: "57.0", description: "Take down mighty dragons with this timeless set of 20 sided wonders", quantity: 14, supplier_id: 2 },
+  { name: "Yoda sleeping bag", price: "40.0", description: "For real", quantity: 1, supplier_id: 2 },
+  { name: "Space Cowboy Laser Gun", price: "170.0", description: "This weapon has no other description than, Shiney!", quantity: 67, supplier_id: 2 },
+  { name: "WNYX Mug", price: "2.0", description: "Get your morning news once you wake up with a cup of joe from... well Joe. He made it with his homemade duct tape", quantity: 12, supplier_id: 1 },
+  { name: "Hitchhiker's Guide to the Galaxy", price: "42.0", description: "In many of the more relaxed civilizations on the Outer Eastern Rim of the Galaxy, the Hitch-Hiker's Guide has already supplanted the great Encyclopaedia Galactica as the standard repository of all knowledge and wisdom, for though it has many omissions and contains much that is apocryphal, or at least wildly inaccurate, it scores over the older, more pedestrian work in two important respects. First, it is slightly cheaper; and secondly it has the words DON'T PANIC inscribed in large friendly letters on its cover.", quantity: 91, supplier_id: 1 },
+  { name: "Lightsaber!!!!", price: "270.0", description: "Part laser, part samurai sword, all awesome. The lightsaber is an elegant weapon for a more civilized age, not nearly as clumsy as a blaster", quantity: 2, supplier_id: 1 },
+  { name: "hello kitty rice cooker", price: "45.0", description: "it's cute and it cooks rice", quantity: nil, supplier_id: 2 },
+])
+Order.create!([
+  { user_id: 1, product_id: 7, quantity: 10, subtotal: "10.0", tax: "1.0", total: "11.0" },
+  { user_id: 1, product_id: 7, quantity: 10, subtotal: "10.0", tax: "1.0", total: "11.0" },
+  { user_id: 1, product_id: 7, quantity: 10, subtotal: "10.0", tax: "1.0", total: "11.0" },
+  { user_id: 1, product_id: 7, quantity: 10, subtotal: "10.0", tax: "1.0", total: "11.0" },
+  { user_id: 1, product_id: 7, quantity: 10, subtotal: "1700.0", tax: "153.0", total: "1853.0" },
+])
+Image.create!([
+  { url: "https://i.pinimg.com/236x/14/4a/0b/144a0bffe37f29f414e2dae2bd0141cf.jpg", product_id: 1 },
+  {
+    product_id: 1,
+    url: "https://images-na.ssl-images-amazon.com/images/I/41961kFogkL._SY355_.jpg",
+  },
+  {
+    product_id: 2,
+    url: "https://vignette.wikia.nocookie.net/hitchhikers/images/e/e1/Guide.jpg/revision/latest?cb=20080505045130",
+  },
+  {
+    product_id: 3,
+    url: "http://25.media.tumblr.com/d2456964024018fd930338c099371104/tumblr_n2m73lTx2Q1svn82uo1_400.gif",
+  },
+  {
+    product_id: 3,
+    url: "https://www.forevergeek.com/wp-content/media/2015/11/maxresdefault-930x523.jpg",
+  },
+  {
+    product_id: 3,
+    url: "https://cld.goliath.com/image/upload/t_tn,f_auto,q_auto,$h_375,$w_1050/go/2017/05/Star-Wars-Lightsaber-1050x375.jpg",
+  },
+  {
+    product_id: 4,
+    url: "https://www.thegeekgift.com/wp-content/uploads/2014/11/malcolm_reynolds_gun_replica_firefly_props-500x500.jpg?x53467",
+  },
+  {
+    product_id: 5,
+    url: "https://s-media-cache-ak0.pinimg.com/736x/9c/15/7b/9c157bea5331463f9c539cbce739a4b8.jpg",
+  },
+  {
+    product_id: 6,
+    url: "http://merchandise.thedoctorwhosite.co.uk/wp-content/uploads/wand-10th-1.jpg",
+  },
+  {
+    product_id: 7,
+    url: "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/12353-0-1461721930.png",
+  },
+  {
+    product_id: 8,
+    url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNYzx-X5i9IPagcgfkFqa9NsIT_roRTWhpwA&usqp=CAU",
+  },
+])
+CategoryProduct.create!([
+  { category_id: 1, product_id: 1 },
+  { category_id: 1, product_id: 6 },
+  { category_id: 2, product_id: 3 },
+  { category_id: 2, product_id: 4 },
+  { category_id: 2, product_id: 7 },
+  { category_id: 3, product_id: 3 },
+  { category_id: 3, product_id: 4 },
+  { category_id: 3, product_id: 5 },
+  { category_id: 4, product_id: 1 },
+  { category_id: 4, product_id: 2 },
+  { category_id: 4, product_id: 7 },
+])
